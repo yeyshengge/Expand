@@ -11,12 +11,7 @@ import java.util.concurrent.Executors;
  */
 @Component
 public class ThreadDemo implements CommandLineRunner {
-    /**
-     * Callback used to run the bean.
-     *
-     * @param args incoming main method arguments
-     * @throws Exception on error
-     */
+
     @Override
     public void run(String... args) throws Exception {
         ExecutorService executorService = Executors.newFixedThreadPool(5);
