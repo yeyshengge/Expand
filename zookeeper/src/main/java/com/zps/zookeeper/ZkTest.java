@@ -30,6 +30,7 @@ public class ZkTest {
             }
         });
         System.out.println(zkClient.toString());
+
     }
 
     @Test
