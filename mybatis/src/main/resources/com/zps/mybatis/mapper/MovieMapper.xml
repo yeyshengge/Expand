@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zps.mybatis.dao.MovieMapper" >
+  <resultMap id="BaseResultMap" type="com.zps.mybatis.model.Movie" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="date" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="local" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="tname" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ename" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="year" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="country" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="kind" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="language" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="word" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="showTime" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="dbSecore" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="longTime" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="actor" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="star" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="introduction" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="pigImg" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="smallImg" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="downloadSrc" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, date, local, tname, ename, year, country, kind, language, word, showTime, 
+    dbSecore, longTime, actor, star, introduction, pigImg, smallImg, downloadSrc
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from movice
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from movice
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zps.mybatis.model.Movie" >
+    insert into movice (id, name, date, 
+      local, tname, ename, 
+      year, country, kind, 
+      language, word, showTime, 
+      dbSecore, longTime, actor, 
+      star, introduction, pigImg, 
+      smallImg, downloadSrc)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{date,jdbcType=VARCHAR}, 
+      #{local,jdbcType=VARCHAR}, #{tname,jdbcType=VARCHAR}, #{ename,jdbcType=VARCHAR}, 
+      #{year,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, #{kind,jdbcType=VARCHAR}, 
+      #{language,jdbcType=VARCHAR}, #{word,jdbcType=VARCHAR}, #{showtime,jdbcType=VARCHAR}, 
+      #{dbsecore,jdbcType=VARCHAR}, #{longtime,jdbcType=VARCHAR}, #{actor,jdbcType=VARCHAR}, 
+      #{star,jdbcType=VARCHAR}, #{introduction,jdbcType=VARCHAR}, #{pigimg,jdbcType=VARCHAR}, 
+      #{smallimg,jdbcType=VARCHAR}, #{downloadsrc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zps.mybatis.model.Movie" >
+    insert into movice
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="date != null" >
+        date,
+      </if>
+      <if test="local != null" >
+        local,
+      </if>
+      <if test="tname != null" >
+        tname,
+      </if>
+      <if test="ename != null" >
+        ename,
+      </if>
+      <if test="year != null" >
+        year,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="kind != null" >
+        kind,
+      </if>
+      <if test="language != null" >
+        language,
+      </if>
+      <if test="word != null" >
+        word,
+      </if>
+      <if test="showtime != null" >
+        showTime,
+      </if>
+      <if test="dbsecore != null" >
+        dbSecore,
+      </if>
+      <if test="longtime != null" >
+        longTime,
+      </if>
+      <if test="actor != null" >
+        actor,
+      </if>
+      <if test="star != null" >
+        star,
+      </if>
+      <if test="introduction != null" >
+        introduction,
+      </if>
+      <if test="pigimg != null" >
+        pigImg,
+      </if>
+      <if test="smallimg != null" >
+        smallImg,
+      </if>
+      <if test="downloadsrc != null" >
+        downloadSrc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null" >
+        #{date,jdbcType=VARCHAR},
+      </if>
+      <if test="local != null" >
+        #{local,jdbcType=VARCHAR},
+      </if>
+      <if test="tname != null" >
+        #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null" >
+        #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="kind != null" >
+        #{kind,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null" >
+        #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="word != null" >
+        #{word,jdbcType=VARCHAR},
+      </if>
+      <if test="showtime != null" >
+        #{showtime,jdbcType=VARCHAR},
+      </if>
+      <if test="dbsecore != null" >
+        #{dbsecore,jdbcType=VARCHAR},
+      </if>
+      <if test="longtime != null" >
+        #{longtime,jdbcType=VARCHAR},
+      </if>
+      <if test="actor != null" >
+        #{actor,jdbcType=VARCHAR},
+      </if>
+      <if test="star != null" >
+        #{star,jdbcType=VARCHAR},
+      </if>
+      <if test="introduction != null" >
+        #{introduction,jdbcType=VARCHAR},
+      </if>
+      <if test="pigimg != null" >
+        #{pigimg,jdbcType=VARCHAR},
+      </if>
+      <if test="smallimg != null" >
+        #{smallimg,jdbcType=VARCHAR},
+      </if>
+      <if test="downloadsrc != null" >
+        #{downloadsrc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zps.mybatis.model.Movie" >
+    update movice
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null" >
+        date = #{date,jdbcType=VARCHAR},
+      </if>
+      <if test="local != null" >
+        local = #{local,jdbcType=VARCHAR},
+      </if>
+      <if test="tname != null" >
+        tname = #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null" >
+        ename = #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null" >
+        year = #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="kind != null" >
+        kind = #{kind,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null" >
+        language = #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="word != null" >
+        word = #{word,jdbcType=VARCHAR},
+      </if>
+      <if test="showtime != null" >
+        showTime = #{showtime,jdbcType=VARCHAR},
+      </if>
+      <if test="dbsecore != null" >
+        dbSecore = #{dbsecore,jdbcType=VARCHAR},
+      </if>
+      <if test="longtime != null" >
+        longTime = #{longtime,jdbcType=VARCHAR},
+      </if>
+      <if test="actor != null" >
+        actor = #{actor,jdbcType=VARCHAR},
+      </if>
+      <if test="star != null" >
+        star = #{star,jdbcType=VARCHAR},
+      </if>
+      <if test="introduction != null" >
+        introduction = #{introduction,jdbcType=VARCHAR},
+      </if>
+      <if test="pigimg != null" >
+        pigImg = #{pigimg,jdbcType=VARCHAR},
+      </if>
+      <if test="smallimg != null" >
+        smallImg = #{smallimg,jdbcType=VARCHAR},
+      </if>
+      <if test="downloadsrc != null" >
+        downloadSrc = #{downloadsrc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zps.mybatis.model.Movie" >
+    update movice
+    set name = #{name,jdbcType=VARCHAR},
+      date = #{date,jdbcType=VARCHAR},
+      local = #{local,jdbcType=VARCHAR},
+      tname = #{tname,jdbcType=VARCHAR},
+      ename = #{ename,jdbcType=VARCHAR},
+      year = #{year,jdbcType=VARCHAR},
+      country = #{country,jdbcType=VARCHAR},
+      kind = #{kind,jdbcType=VARCHAR},
+      language = #{language,jdbcType=VARCHAR},
+      word = #{word,jdbcType=VARCHAR},
+      showTime = #{showtime,jdbcType=VARCHAR},
+      dbSecore = #{dbsecore,jdbcType=VARCHAR},
+      longTime = #{longtime,jdbcType=VARCHAR},
+      actor = #{actor,jdbcType=VARCHAR},
+      star = #{star,jdbcType=VARCHAR},
+      introduction = #{introduction,jdbcType=VARCHAR},
+      pigImg = #{pigimg,jdbcType=VARCHAR},
+      smallImg = #{smallimg,jdbcType=VARCHAR},
+      downloadSrc = #{downloadsrc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
